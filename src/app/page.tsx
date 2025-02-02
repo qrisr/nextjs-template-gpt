@@ -55,12 +55,12 @@ export default function Home() {
         }
       ]);
     }
-  }, []);
+  }, [messages.length]);
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
-    const userMessage = { role: "user", content: input };
+    const userMessage: Message = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
